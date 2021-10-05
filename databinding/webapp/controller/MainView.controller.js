@@ -19,6 +19,37 @@ sap.ui.define([
 				// model data를 text property에 binding
 				const oBindingInfo = {path: 'jsonModel>/greetingText'}
 				this.byId('textbinding').bindText(oBindingInfo);
+
+				// two-way databinding
+				this.doTwoWayDatabinding();
+			},
+
+			doTwoWayDatabinding: function() {
+				const oModel = new JSONModel(this.getTwoWayModelData());
+				this.getView().setModel(oModel);
+				console.log(oModel);
+			},
+
+			checkCurrentDataModel: function() {
+				const oModel = this.getView().getModel();
+				console.log('checkCurrentDataModel!');
+				console.log(oModel);
+				console.log(oModel.getData());
+				// ... model 관련된 다양한 메소드 존재 📝
+			},
+
+			refreshDataModel: function() {
+				console.log('refreshDataModel!');
+				this.getView().getModel().setData(this.getTwoWayModelData());
+			},
+
+			getTwoWayModelData: function() {
+				return {
+					firstName: "Jonghwa",
+					lastName: "Hong",
+					enabled: true,
+					panelHeaderText: "Two-way Data Binding"
+				};
 			}
 		});
 	});

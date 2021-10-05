@@ -1,6 +1,7 @@
 <mvc:View
     controllerName="databinding.controller.MainView"
     xmlns:mvc="sap.ui.core.mvc"
+		xmlns:form="sap.ui.layout.form"
     displayBlock="true"
     xmlns="sap.m"
 >
@@ -9,12 +10,29 @@
 			<pages>
 				<Page id="page" title="{i18n>title}">
 					<content>
-						<VBox class="sapUiSmallMargin">
+						<Panel headerText="databinding" class="sapUiSmallMargin">
 							<!-- 1. 현재 View에 설정한 데이터모델에 바인딩할 경로를 설정해주면 된다. -->
 							<Text text="{jsonModel>/greetingText}"/>
 							<!-- 2. 해당 text element를 가져와서 binding 시켜주면 된다.-->
 							<Text id="textbinding"/>
-						</VBox>
+							<!-- 3. Two-way databinding -->
+						</Panel>
+						
+						<Panel headerText="{/panelHeaderText}" class="sapUiSmallMargin" width="auto">
+							<form:SimpleForm editable="true" layout="ResponsiveLayout">
+								<Label text="First Name"/>
+								<Input value="{/firstName}" valueLiveUpdate="true" width="200px" enabled="{/enabled}"/>
+								<Label text="Last Name"/>
+								<Input value="{/lastName}" valueLiveUpdate="true" width="200px" enabled="{/enabled}"/>
+								<Label text="Enabled"/>
+								<CheckBox selected="{/enabled}"/>
+								<Label text="Check Current Model"/>
+								<Button text="press button" press="checkCurrentDataModel" width="200px"/>
+								<Label text="initialize Model"/>
+								<Button text="refresh button" press="refreshDataModel" width="200px"/>
+							</form:SimpleForm> 
+						</Panel>
+						
 					</content>
 				</Page>
 			</pages>
