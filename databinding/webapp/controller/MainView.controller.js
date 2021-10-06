@@ -1,11 +1,12 @@
 sap.ui.define([
 	"sap/ui/core/mvc/Controller",
 	"sap/ui/model/json/JSONModel",
+	"sap/ui/model/BindingMode"
 ],
 	/**
 	 * @param {typeof sap.ui.core.mvc.Controller} Controller
 	 */
-	function (Controller, JSONModel) {
+	function (Controller, JSONModel, BindingMode) {
 		"use strict";
 
 		return Controller.extend("databinding.controller.MainView", {
@@ -21,12 +22,22 @@ sap.ui.define([
 				this.byId('textbinding').bindText(oBindingInfo);
 
 				// two-way databinding
-				this.doTwoWayDatabinding();
+				// this.doTwoWayDatabinding();
+				this.doOneWayDatabinding();
+			},
+
+			doOneWayDatabinding: function() {
+				const oModel = new JSONModel(this.getOwoWayModelData());
+				oModel.setDefaultBindingMode(BindingMode.OneWay);
+				this.getView().setModel(oModel);
+				console.log(oModel);
 			},
 
 			doTwoWayDatabinding: function() {
 				const oModel = new JSONModel(this.getTwoWayModelData());
-				this.getView().setModel(oModel);
+				// this.getView().setModel(oModel);
+				sap.ui.getCore().setModel(oModel);
+
 				console.log(oModel);
 			},
 
@@ -41,6 +52,15 @@ sap.ui.define([
 			refreshDataModel: function() {
 				console.log('refreshDataModel!');
 				this.getView().getModel().setData(this.getTwoWayModelData());
+			},
+
+			getOwoWayModelData: function() {
+				return {
+					firstName: "Jonghwa",
+					lastName: "Hong",
+					enabled: true,
+					panelHeaderText: "One-way Data Binding"
+				};
 			},
 
 			getTwoWayModelData: function() {
