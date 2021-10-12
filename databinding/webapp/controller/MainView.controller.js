@@ -1,12 +1,13 @@
 sap.ui.define([
 	"sap/ui/core/mvc/Controller",
 	"sap/ui/model/json/JSONModel",
-	"sap/ui/model/BindingMode"
+	"sap/ui/model/BindingMode",
+	"sap/ui/model/resource/ResourceModel"
 ],
 	/**
 	 * @param {typeof sap.ui.core.mvc.Controller} Controller
 	 */
-	function (Controller, JSONModel, BindingMode) {
+	function (Controller, JSONModel, BindingMode, ResourceModel) {
 		"use strict";
 
 		return Controller.extend("databinding.controller.MainView", {
@@ -15,6 +16,16 @@ sap.ui.define([
 				const oModel = new JSONModel({
 					greetingText: 'Hello World!'
 				});
+				
+				const oResourceModel = new ResourceModel({
+					bundleName: 'databinding.i18n.i18n',
+					supportedLocales: ['', 'de'],
+					fallbackLocale: ''
+				})
+
+
+				this.getView().setModel(oResourceModel, 'i18n');
+				console.log(oResourceModel.getResourceBundle());
 				// 현재  view에 model을 설정
 				this.getView().setModel(oModel, 'jsonModel'); 
 				// model data를 text property에 binding
@@ -51,7 +62,8 @@ sap.ui.define([
 
 			refreshDataModel: function() {
 				console.log('refreshDataModel!');
-				this.getView().getModel().setData(this.getTwoWayModelData());
+				// this.getView().getModel().setData(this.getTwoWayModelData());
+				this.getView().getModel().setData(this.getOwoWayModelData()); // 기존 data model과 동일하기에 refreash해도 ui 변경 X
 			},
 
 			getOwoWayModelData: function() {

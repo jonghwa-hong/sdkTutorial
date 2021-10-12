@@ -18,13 +18,13 @@
 							<!-- 3. Two-way databinding -->
 						</Panel>
 						
-						<Panel headerText="{/panelHeaderText}" class="sapUiSmallMargin" width="auto">
+						<Panel headerText="{i18n>panelHeaderText}" class="sapUiSmallMargin" width="auto">
 							<form:SimpleForm editable="true" layout="ResponsiveLayout">
-								<Label text="First Name"/>
+								<Label text="{i18n>firstName}"/>
 								<Input value="{/firstName}" valueLiveUpdate="true" width="200px" enabled="{/enabled}"/>
-								<Label text="Last Name"/>
+								<Label text="{i18n>lastName}"/>
 								<Input value="{/lastName}" valueLiveUpdate="true" width="200px" enabled="{/enabled}"/>
-								<Label text="Enabled"/>
+								<Label text="{i18n>enabled}"/>
 								<CheckBox selected="{/enabled}"/>
 								<Label text="Check Current Model"/>
 								<Button text="press button" press="checkCurrentDataModel" width="200px"/>
