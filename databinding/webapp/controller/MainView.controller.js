@@ -71,7 +71,13 @@ sap.ui.define([
 					firstName: "Jonghwa",
 					lastName: "Hong",
 					enabled: true,
-					panelHeaderText: "One-way Data Binding"
+					panelHeaderText: "One-way Data Binding",
+					address: {
+						street: "sangdo",
+						city: "seoul",
+						zip: "123456",
+						country: "kr"
+					}
 				};
 			},
 

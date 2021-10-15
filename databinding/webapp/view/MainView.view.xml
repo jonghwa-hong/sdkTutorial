@@ -2,6 +2,7 @@
     controllerName="databinding.controller.MainView"
     xmlns:mvc="sap.ui.core.mvc"
 		xmlns:form="sap.ui.layout.form"
+		xmlns:l="sap.ui.layout"
     displayBlock="true"
     xmlns="sap.m"
 >
@@ -32,7 +33,18 @@
 								<Button text="refresh button" press="refreshDataModel" width="200px"/>
 							</form:SimpleForm> 
 						</Panel>
-						
+
+							<Panel headerText="{i18n>panel2HeaderText}" class="sapUiResponsiveMargin" width="auto">
+									<content>
+										<l:VerticalLayout>
+										<Label labelFor="address" text="{i18n>address}:"/>
+										<FormattedText class="sapUiSmallMarginBottom"
+											htmlText="{/address/street}&lt;br>{/address/zip} {/address/city}&lt;br>{/address/country}"
+											id="address" 
+											width="200px"/>
+										</l:VerticalLayout>
+										</content>
+								</Panel>			
 					</content>
 				</Page>
 			</pages>
