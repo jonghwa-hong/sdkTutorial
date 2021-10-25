@@ -1,14 +1,12 @@
-<mvc:View
-    controllerName="databinding.controller.SubView"
-    xmlns:mvc="sap.ui.core.mvc"
-		xmlns:form="sap.ui.layout.form"
-		xmlns:l="sap.ui.layout"
-    displayBlock="true"
-    xmlns="sap.m"
->
+<mvc:View controllerName="databinding.controller.SubView"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns:form="sap.ui.layout.form"
+  xmlns:l="sap.ui.layout" displayBlock="true"
+  xmlns="sap.m">
   <Page title="sub page">
     <content>
-      
+      <Panel headerText="" class="sapUiSmallMargin" width="auto">
+      </Panel>
     </content>
   </Page>
 </mvc:View>

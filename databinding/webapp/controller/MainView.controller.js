@@ -2,12 +2,13 @@ sap.ui.define([
 	"sap/ui/core/mvc/Controller",
 	"sap/ui/model/json/JSONModel",
 	"sap/ui/model/BindingMode",
-	"sap/ui/model/resource/ResourceModel"
+	"sap/ui/model/resource/ResourceModel",
+	"sap/m/library"
 ],
 	/**
 	 * @param {typeof sap.ui.core.mvc.Controller} Controller
 	 */
-	function (Controller, JSONModel, BindingMode, ResourceModel) {
+	function (Controller, JSONModel, BindingMode, ResourceModel, mobileLibrary) {
 		"use strict";
 
 		return Controller.extend("databinding.controller.MainView", {
@@ -91,6 +92,14 @@ sap.ui.define([
 					panelHeaderText: "Two-way Data Binding"
 				};
 			},
+
+			formatMail: function(sFirstName, sLastName) {
+				const oBundle = this.getView().getModel('i18n').getResourceBundle();
+        return mobileLibrary.URLHelper.normalizeEmail(
+          sFirstName + '.' + sLastName + '@example.com',
+          oBundle.getText('mailSubject', [sFirstName]),
+          oBundle.getText('mailBody'));
+      },
 
 			onNavPage: function(oEvent) {
 				const oRouter = this.getOwnerComponent().getRouter();
