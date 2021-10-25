@@ -21,7 +21,9 @@ sap.ui.define([
 					bundleName: 'databinding.i18n.i18n',
 					supportedLocales: ['', 'de'],
 					fallbackLocale: ''
-				})
+				});
+
+				console.log(sap.ui.getCore().getConfiguration().getLanguage());
 
 
 				this.getView().setModel(oResourceModel, 'i18n');
@@ -88,6 +90,11 @@ sap.ui.define([
 					enabled: true,
 					panelHeaderText: "Two-way Data Binding"
 				};
+			},
+
+			onNavPage: function(oEvent) {
+				const oRouter = this.getOwnerComponent().getRouter();
+				oRouter.navTo("RouteSubView");
 			}
 		});
 	});

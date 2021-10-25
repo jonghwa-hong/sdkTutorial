@@ -44,7 +44,14 @@
 											width="200px"/>
 										</l:VerticalLayout>
 										</content>
-								</Panel>			
+							</Panel>
+							<Panel headerText="{i18n>panel3HeaderText}" class="sapUiResponsiveMargin" width="auto">
+									<content>
+										<l:VerticalLayout>
+										<Button text="페이지 이동" press=".onNavPage"/>
+										</l:VerticalLayout>
+										</content>
+							</Panel>						
 					</content>
 				</Page>
 			</pages>

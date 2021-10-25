@@ -77,8 +77,12 @@
       "routes": [
         {
           "name": "RouteMainView",
-          "pattern": "RouteMainView",
+          "pattern": "",
           "target": ["TargetMainView"]
+        },{
+          "name": "RouteSubView",
+          "pattern": "RouteSubView",
+          "target": ["TargetSubView"]
         }
       ],
       "targets": {
@@ -86,8 +90,15 @@
           "viewType": "XML",
           "transition": "slide",
           "clearControlAggregation": false,
-          "viewId": "MainView",
+          "viewId": "mainView",
           "viewName": "MainView"
+        },
+        "TargetSubView": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "subView",
+          "viewName": "SubView"
         }
       }
     }
