@@ -36,8 +36,8 @@ sap.ui.define([
 				this.byId('textbinding').bindText(oBindingInfo);
 
 				// two-way databinding
-				// this.doTwoWayDatabinding();
-				this.doOneWayDatabinding();
+				this.doTwoWayDatabinding();
+				// this.doOneWayDatabinding();
 			},
 
 			doOneWayDatabinding: function() {
@@ -49,9 +49,8 @@ sap.ui.define([
 
 			doTwoWayDatabinding: function() {
 				const oModel = new JSONModel(this.getTwoWayModelData());
-				// this.getView().setModel(oModel);
-				sap.ui.getCore().setModel(oModel);
-
+				this.getView().setModel(oModel);
+				// sap.ui.getCore().setModel(oModel);
 				console.log(oModel);
 			},
 
@@ -80,7 +79,9 @@ sap.ui.define([
 						city: "seoul",
 						zip: "123456",
 						country: "kr"
-					}
+					},
+					salesAmount: 12345.6789,
+					currencyCode: "EUR"
 				};
 			},
 
@@ -89,7 +90,15 @@ sap.ui.define([
 					firstName: "Jonghwa",
 					lastName: "Hong",
 					enabled: true,
-					panelHeaderText: "Two-way Data Binding"
+					panelHeaderText: "Two-way Data Binding",
+					address: {
+						street: "sangdo",
+						city: "seoul",
+						zip: "123456",
+						country: "kr"
+					},
+					salesAmount: 12345.6789,
+					currencyCode: "EUR"
 				};
 			},
 
