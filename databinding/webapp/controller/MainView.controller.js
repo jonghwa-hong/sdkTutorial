@@ -13,6 +13,7 @@ sap.ui.define([
 
 		return Controller.extend("databinding.controller.MainView", {
 			onInit: function () {
+				sap.ui.getCore().getMessageManager().registerObject(this.getView(), true);
 				// object literal을 JSONModel에 전달하고 생성된 JSONModel 인스턴스를 oModel 변수에 저장
 				const oModel = new JSONModel({
 					greetingText: 'Hello World!'
