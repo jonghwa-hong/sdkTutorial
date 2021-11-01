@@ -33,6 +33,7 @@ sap.ui.define([
 
 			getOneWayModelData: function() {
 				return {
+					priceThreshold: 20,
 					currencyCode: "EUR"
 				};
 			},

@@ -15,7 +15,7 @@
 						],
 						type: 'sap.ui.model.type.Currency',
 						formatOptions: { showMeasure: false }
-					}" numberUnit="{/currencyCode}" 	press=".onItemSelected" type="Active">
+					}" numberUnit="{/currencyCode}" numberState="{= ${products>UnitPrice} > ${/priceThreshold} ? 'Error' : 'Success' }" press=".onItemSelected" type="Active">
               <attributes>
                 <ObjectAttribute text="{products>QuantityPerUnit}"/>
                 <ObjectAttribute title="{i18n>stockValue}" text="{
